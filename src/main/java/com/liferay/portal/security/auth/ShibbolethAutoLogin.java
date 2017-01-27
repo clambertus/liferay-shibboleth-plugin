@@ -138,6 +138,9 @@ public class ShibbolethAutoLogin implements AutoLogin {
             _log.error("Exception while updating user roles from session: " + e.getMessage());
         }
 
+	user.setPasswordReset(false);
+	UserLocalServiceUtil.updateUser(user);
+
         return user;
     }
 
